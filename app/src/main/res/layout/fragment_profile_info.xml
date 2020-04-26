@@ -28,10 +28,10 @@
             android:fontFamily="@font/roboto"
             android:padding="4dp"
             android:src="@drawable/ic_qrcode"
-            android:text="Banco 260 - Nu Pagamentos S.A.\nAgência 0001\nConta 4481226-3"
+            android:text="@string/account_info"
             android:textAlignment="center"
             android:textColor="#FFF"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <include
             layout="@layout/item_profile_button"
