@@ -13,6 +13,10 @@ class MarginItemDecoration(private val spaceHeight: Int) : RecyclerView.ItemDeco
         with(outRect) {
             if (parent.getChildAdapterPosition(view) != 0)
                 left = spaceHeight
+            if (parent.getChildAdapterPosition(view) == 0)
+                left = view.resources.getDimension(R.dimen.margin_20).toInt()
+            if (parent.getChildAdapterPosition(view) + 1 == parent.adapter?.itemCount)
+                right = view.resources.getDimension(R.dimen.margin_20).toInt()
         }
     }
 }
