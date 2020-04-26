@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#612F74</color>
-    <color name="colorPrimaryLight">#9140a9</color>
-    <color name="colorPrimaryDark">#612F74</color>
-    <color name="colorAccent">#03DAC5</color>
+    <dimen name="default_padding">8dp</dimen>
 </resources>

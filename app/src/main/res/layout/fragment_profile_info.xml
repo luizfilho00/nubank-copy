@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    tools:background="@color/colorPrimary"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/image_view_qrcode"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_gravity="center"
+        android:padding="4dp"
+        android:background="@android:color/white"
+        android:src="@drawable/ic_qrcode"/>
+
+    <TextView
+        android:id="@+id/text_view_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp"
+        android:textColor="#FFF"
+        android:textSize="16sp"
+        android:fontFamily="@font/roboto"
+        android:padding="4dp"
+        android:textAlignment="center"
+        android:text="Banco 260 - Nu Pagamentos S.A.\nAgência 0001\nConta 4481226-3"
+        android:src="@drawable/ic_qrcode"/>
+
+    <include
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        layout="@layout/item_profile_button" />
+
+    <include
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/item_profile_button" />
+
+    <include
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/item_profile_button" />
+
+    <include
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/item_profile_button" />
+
+    <include
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/item_profile_button" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#80FFFFFF" />
+
+    <Button
+        android:id="@+id/button"
+        android:enabled="false"
+        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Sair da conta" />
 </LinearLayout>
