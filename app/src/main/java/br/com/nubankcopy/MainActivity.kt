@@ -1,39 +1,68 @@
 package br.com.nubankcopy
 
-import android.graphics.Point
 import android.os.Bundle
-import android.widget.Toast
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.core.content.res.ResourcesCompat
+import androidx.databinding.DataBindingUtil
 import br.com.nubankcopy.databinding.ActivityMainBinding
-import io.reactivex.rxjava3.disposables.CompositeDisposable
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val disposables = CompositeDisposable()
+    private val fragment = ProfileInfoFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setupDragAndDrop()
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        setWindowTransparent()
+        setupRecyclerView()
+        setupFragment()
+        setupUi()
     }
 
-    private fun setupDragAndDrop() {
-        val display = windowManager.defaultDisplay
-        val size = Point()
-        display.getSize(size)
+    private fun setWindowTransparent() {
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
+        window.navigationBarColor =
+            ResourcesCompat.getColor(resources, android.R.color.transparent, theme)
     }
 
-    override fun onStop() {
-        Toast.makeText(this, "disposabes clear!", Toast.LENGTH_SHORT).show()
-        super.onStop()
-        disposables.clear()
+    private fun setupRecyclerView() {
+        with(binding.recyclerView) {
+            addItemDecoration(
+                MarginItemDecoration(resources.getDimension(R.dimen.default_padding).toInt())
+            )
+            adapter = MenuAdapter().apply {
+                submitList(MenuItem.getMenu())
+            }
+        }
     }
 
-    override fun onDestroy() {
-        Toast.makeText(this, "disposabes dispose!", Toast.LENGTH_SHORT).show()
-        super.onDestroy()
-        disposables.dispose()
+    private fun setupFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(binding.frameLayout.id, fragment)
+            .commit()
+    }
+
+    private fun setupUi() {
+        binding.motionLayout.setTransitionListener(object : MotionLayout.TransitionListener {
+            override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {
+            }
+
+            override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
+            }
+
+            override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {
+            }
+
+            override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
+                fragment.toggleButton()
+            }
+        })
     }
 }

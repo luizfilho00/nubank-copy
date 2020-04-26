@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">NuBankCopy</string>
+    <string name="help_me">Me ajuda</string>
+    <string name="profile">Perfil</string>
+    <string name="setup_account">Configurar conta</string>
+    <string name="setup_card">Configurar Cartão</string>
+    <string name="setup_app">Configurações do app</string>
+    <string name="profile_button_info">Nome de preferência, telefone, e-mail</string>
 </resources>

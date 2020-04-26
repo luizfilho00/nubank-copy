@@ -5,22 +5,55 @@
         <Transition
             app:constraintSetStart="@layout/activity_main"
             app:constraintSetEnd="@layout/activity_main_end"
-            app:duration="1000">
+            app:duration="200">
             <OnSwipe
                 app:touchAnchorId="@+id/view"
                 app:touchAnchorSide="bottom"
                 app:dragDirection="dragDown" />
 
+            <OnClick
+                app:clickAction="toggle"
+                app:targetId="@id/image_view_arrow"/>
+
             <KeyFrameSet>
                 <KeyAttribute
-                    android:alpha="1.0"
+                    android:rotation="0"
+                    app:framePosition="0"
+                    app:motionTarget="@id/image_view_arrow" />
+
+                <KeyAttribute
+                    android:rotation="180"
+                    app:framePosition="100"
+                    app:motionTarget="@id/image_view_arrow" />
+            </KeyFrameSet>
+
+            <KeyFrameSet>
+                <KeyAttribute
+                    android:alpha="0.0"
                     app:framePosition="0"
                     app:motionTarget="@id/frameLayout" />
 
                 <KeyAttribute
-                    android:alpha="0.3"
+                    android:alpha="1.0"
                     app:framePosition="100"
                     app:motionTarget="@id/frameLayout" />
+            </KeyFrameSet>
+
+            <KeyFrameSet>
+                <KeyAttribute
+                    android:alpha="1.0"
+                    app:framePosition="0"
+                    app:motionTarget="@id/recycler_view" />
+
+                <KeyAttribute
+                    android:alpha="0.0"
+                    app:framePosition="40"
+                    app:motionTarget="@id/recycler_view" />
+
+                <KeyAttribute
+                    android:alpha="0.0"
+                    app:framePosition="100"
+                    app:motionTarget="@id/recycler_view" />
             </KeyFrameSet>
         </Transition>
 </MotionScene>
