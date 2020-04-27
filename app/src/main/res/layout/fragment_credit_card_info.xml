@@ -26,10 +26,11 @@
             android:id="@+id/linear_layout_charge_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@id/text_view_last_buy"
             app:layout_constraintStart_toStartOf="@id/text_view_title"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/text_view_title">
 
             <TextView
                 android:id="@+id/text_view_current_charge"
@@ -103,16 +104,16 @@
             android:id="@+id/text_view_last_buy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="24dp"
             android:background="#07000000"
-            android:drawableEnd="@drawable/ic_arrow_right_gray"
             android:drawableStart="@drawable/ic_shopping_cart"
+            android:drawableEnd="@drawable/ic_arrow_right_gray"
             android:drawablePadding="18dp"
-            android:maxLines="2"
             android:ellipsize="end"
             android:fontFamily="@font/roboto"
+            android:maxLines="2"
+            android:padding="24dp"
             android:text="Compra mais recente em Supermercado no valor de R$45,50"
-            app:layout_constraintTop_toBottomOf="@id/view_limit"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_limit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

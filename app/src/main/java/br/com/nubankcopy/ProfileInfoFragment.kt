@@ -17,24 +17,11 @@ class ProfileInfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileInfoBinding.inflate(inflater, container, false)
-        setupUi()
         return binding?.root
     }
 
     override fun onDestroyView() {
         binding = null
         super.onDestroyView()
-    }
-
-    fun toggleButton() {
-        binding?.button?.isEnabled?.let { isEnable ->
-            binding?.button?.isEnabled = !isEnable
-        }
-    }
-
-    private fun setupUi() {
-        binding?.button?.setOnClickListener {
-            DialogFragment().show(childFragmentManager, null)
-        }
     }
 }

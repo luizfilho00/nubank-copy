@@ -1,13 +1,13 @@
 package br.com.nubankcopy
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import br.com.nubankcopy.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,9 +18,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setWindowTransparent()
+        setupSideBar()
         setupRecyclerView()
         setupFragment()
-        setupUi()
     }
 
     private fun setWindowTransparent() {
@@ -30,6 +30,51 @@ class MainActivity : AppCompatActivity() {
         )
         window.navigationBarColor =
             ResourcesCompat.getColor(resources, android.R.color.transparent, theme)
+    }
+
+    private fun setupSideBar() {
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val screenHeight = displayMetrics.heightPixels
+        setupRewardsInfo(screenHeight)
+        setupCreditCardInfo(screenHeight)
+        setupAccountInfo(screenHeight)
+    }
+
+    private fun setupRewardsInfo(screenHeight: Int) {
+        binding.view.includedRewardsInfo.rootLayout.layoutParams.height = screenHeight * 40 / 100
+    }
+
+    private fun setupCreditCardInfo(screenHeight: Int) {
+        with(binding.view.includedCreditCardInfo) {
+            viewCosts.layoutParams.height = screenHeight * 5 / 100
+            viewCurrent.layoutParams.height = screenHeight * 10 / 100
+            viewLimit.layoutParams.height = screenHeight * 20 / 100
+        }
+    }
+
+    private fun setupAccountInfo(screenHeight: Int) {
+        with(binding.view.includedAccountInfo) {
+            rootLayout.layoutParams.height = screenHeight * 40 / 100
+            var toggleOn = false
+            imageViewToggle.setOnClickListener {
+                toggleOn = if (toggleOn) {
+                    imageViewToggle.setImageDrawable(getDrawable(R.drawable.ic_hide))
+                    ObjectAnimator.ofFloat(viewToggle, "alpha", 1f).apply {
+                        duration = 200
+                        start()
+                    }
+                    false
+                } else {
+                    imageViewToggle.setImageDrawable(getDrawable(R.drawable.ic_eye))
+                    ObjectAnimator.ofFloat(viewToggle, "alpha", 0f).apply {
+                        duration = 200
+                        start()
+                    }
+                    true
+                }
+            }
+        }
     }
 
     private fun setupRecyclerView() {
@@ -45,23 +90,5 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(binding.frameLayout.id, fragment)
             .commit()
-    }
-
-    private fun setupUi() {
-        binding.motionLayout.setTransitionListener(object : MotionLayout.TransitionListener {
-
-            override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {
-            }
-
-            override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
-            }
-
-            override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {
-            }
-
-            override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
-                fragment.toggleButton()
-            }
-        })
     }
 }

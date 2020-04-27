@@ -3,88 +3,93 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
         tools:background="@color/colorPrimary">
 
-        <ImageView
-            android:id="@+id/image_view_qrcode"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:background="@android:color/white"
-            android:padding="4dp"
-            android:src="@drawable/ic_qrcode" />
-
-        <TextView
-            android:id="@+id/text_view_account"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/roboto"
-            android:padding="4dp"
-            android:src="@drawable/ic_qrcode"
-            android:text="@string/account_info"
-            android:textAlignment="center"
-            android:textColor="#FFF"
-            android:textSize="14sp" />
+            android:orientation="vertical">
 
-        <include
-            layout="@layout/item_profile_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:buttonLabel="@{@string/help_me}"
-            app:icon="@{@drawable/ic_question}" />
+            <ImageView
+                android:id="@+id/image_view_qrcode"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:background="@android:color/white"
+                android:padding="4dp"
+                android:src="@drawable/ic_qrcode" />
 
-        <include
-            layout="@layout/item_profile_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:buttonLabel="@{@string/profile}"
-            app:icon="@{@drawable/ic_profile}" />
+            <TextView
+                android:id="@+id/text_view_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/roboto"
+                android:padding="4dp"
+                android:src="@drawable/ic_qrcode"
+                android:text="@string/account_info"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:textSize="14sp" />
 
-        <include
-            layout="@layout/item_profile_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:buttonLabel="@{@string/setup_account}"
-            app:icon="@{@drawable/ic_money}" />
+            <include
+                layout="@layout/item_profile_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:buttonLabel="@{@string/help_me}"
+                app:icon="@{@drawable/ic_question}" />
 
-        <include
-            layout="@layout/item_profile_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:buttonLabel="@{@string/setup_card}"
-            app:icon="@{@drawable/ic_credit_card}" />
+            <include
+                layout="@layout/item_profile_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:buttonLabel="@{@string/profile}"
+                app:icon="@{@drawable/ic_profile}" />
 
-        <include
-            layout="@layout/item_profile_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:icon="@{@drawable/ic_app_config}"
-            app:buttonLabel="@{@string/setup_app}" />
+            <include
+                layout="@layout/item_profile_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:buttonLabel="@{@string/setup_account}"
+                app:icon="@{@drawable/ic_money}" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#30FFFFFF" />
+            <include
+                layout="@layout/item_profile_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:buttonLabel="@{@string/setup_card}"
+                app:icon="@{@drawable/ic_credit_card}" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/rounded_background_not_filled"
-            android:enabled="false"
-            android:fontFamily="@font/roboto_bold"
-            android:foreground="?android:selectableItemBackground"
-            android:letterSpacing="0.1"
-            android:text="Sair da conta"
-            android:textColor="#FFF" />
-    </LinearLayout>
+            <include
+                layout="@layout/item_profile_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:buttonLabel="@{@string/setup_app}"
+                app:icon="@{@drawable/ic_app_config}" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#30FFFFFF" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_background_not_filled"
+                android:enabled="false"
+                android:fontFamily="@font/roboto_bold"
+                android:foreground="?android:selectableItemBackground"
+                android:letterSpacing="0.1"
+                android:text="Sair da conta"
+                android:textColor="#FFF" />
+        </LinearLayout>
+    </ScrollView>
 </layout>
