@@ -34,9 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         with(binding.recyclerView) {
-            addItemDecoration(
-                MarginItemDecoration(resources.getDimension(R.dimen.default_padding).toInt())
-            )
+            addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.default_padding).toInt()))
             adapter = MenuAdapter().apply {
                 submitList(MenuItem.getMenu())
             }
@@ -51,6 +49,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupUi() {
         binding.motionLayout.setTransitionListener(object : MotionLayout.TransitionListener {
+
             override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {
             }
 
