@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetStart="@layout/activity_splash"
+        app:constraintSetEnd="@layout/activity_splash_end"
+        app:duration="800">
+
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@id/root_layout" />
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                app:framePosition="0"
+                app:motionTarget="@id/image_view" />
+
+            <KeyAttribute
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                app:framePosition="100"
+                app:motionTarget="@id/image_view" />
+        </KeyFrameSet>
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0.0"
+                app:framePosition="0"
+                app:motionTarget="@id/text_view" />
+
+            <KeyAttribute
+                android:alpha="0.0"
+                app:framePosition="85"
+                app:motionTarget="@id/text_view" />
+
+            <KeyAttribute
+                android:alpha="1.0"
+                app:framePosition="100"
+                app:motionTarget="@id/text_view" />
+        </KeyFrameSet>
+    </Transition>
+</MotionScene>
