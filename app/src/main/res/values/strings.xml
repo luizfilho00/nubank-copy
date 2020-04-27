@@ -7,4 +7,5 @@
     <string name="setup_app">Configurações do app</string>
     <string name="profile_button_info">Nome de preferência, telefone, e-mail</string>
     <string name="account_info">Banco <b>260 – Nu Pagamentos S.A.</b>\nAgência <b>0001</b>\nConta <b>4481226-3</b></string>
+    <string name="credit_card_value">R$ <b>549</b>,69</string>
 </resources>
