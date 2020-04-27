@@ -20,7 +20,6 @@ data class MenuItem(
             MenuItem("Pagar", R.drawable.ic_pay),
             MenuItem("Bloquear cartão", R.drawable.ic_lock),
             MenuItem("Cartão virtual", R.drawable.ic_virtual_card),
-            MenuItem("Pagar", R.drawable.ic_pay),
             MenuItem("Organizar atalhos", R.drawable.ic_setup_shortcuts)
         )
     }

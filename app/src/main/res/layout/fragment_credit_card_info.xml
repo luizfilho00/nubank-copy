@@ -11,7 +11,8 @@
             android:id="@+id/text_view_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="28dp"
             android:drawableStart="@drawable/ic_credit_card"
             android:drawablePadding="16dp"
             android:drawableTint="#90000000"
@@ -36,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
                 android:text="FATURAL ATUAL"
-                android:textColor="@android:color/holo_blue_bright"
+                android:textColor="#0fc0d0"
                 android:textSize="14sp" />
 
             <TextView
@@ -45,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:text="@string/credit_card_value"
-                android:textColor="@android:color/holo_blue_bright"
+                android:textColor="#0fc0d0"
                 android:textSize="30sp" />
 
             <LinearLayout
