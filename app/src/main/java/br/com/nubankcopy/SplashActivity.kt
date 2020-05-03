@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import br.com.nubankcopy.databinding.ActivitySplashBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
@@ -23,26 +23,22 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun setupUi() {
-        Observable.just(Unit)
-            .delay(500, TimeUnit.MILLISECONDS)
-            .flatMap { playAnimation() }
+        playAnimation()
+            .delaySubscription(500, TimeUnit.MILLISECONDS)
             .delay(1500, TimeUnit.MILLISECONDS)
-            .flatMap { goToMain() }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {  }
+            .subscribe { goToMain() }
             .let(disposables::add)
     }
 
-    private fun playAnimation(): Observable<Unit> {
-        return Observable.just(binding.rootLayout.transitionToEnd())
+    private fun playAnimation(): Completable {
+        return Completable.fromCallable { binding.rootLayout.transitionToEnd() }
     }
 
-    private fun goToMain(): Observable<Unit> {
-        return Observable.fromCallable {
-            finish()
-            startActivity(Intent(this, MainActivity::class.java))
-        }
+    private fun goToMain() {
+        finish()
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
     override fun onDestroy() {
