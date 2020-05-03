@@ -1,5 +1,6 @@
 package br.com.nubankcopy
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.WindowManager
@@ -53,7 +54,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupAccountInfo(screenHeight: Int) {
-        binding.view.includedAccountInfo.rootLayout.layoutParams.height = screenHeight * 40 / 100
+        with(binding.view.includedAccountInfo) {
+            rootLayout.layoutParams.height = screenHeight * 40 / 100
+            var toggleOn = false
+            imageViewToggle.setOnClickListener {
+                toggleOn = if (toggleOn) {
+                    imageViewToggle.setImageDrawable(getDrawable(R.drawable.ic_hide))
+                    ObjectAnimator.ofFloat(viewToggle, "alpha", 1f).apply {
+                        duration = 200
+                        start()
+                    }
+                    false
+                } else {
+                    imageViewToggle.setImageDrawable(getDrawable(R.drawable.ic_eye))
+                    ObjectAnimator.ofFloat(viewToggle, "alpha", 0f).apply {
+                        duration = 200
+                        start()
+                    }
+                    true
+                }
+            }
+        }
     }
 
     private fun setupRecyclerView() {
