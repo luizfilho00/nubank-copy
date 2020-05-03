@@ -2,7 +2,6 @@ package br.com.nubankcopy
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import br.com.nubankcopy.databinding.ActivitySplashBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -11,7 +10,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : TransparentActivity() {
 
     private lateinit var binding: ActivitySplashBinding
     private val disposables = CompositeDisposable()

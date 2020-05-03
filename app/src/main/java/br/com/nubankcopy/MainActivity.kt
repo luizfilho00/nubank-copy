@@ -3,13 +3,10 @@ package br.com.nubankcopy
 import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.WindowManager
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import br.com.nubankcopy.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : TransparentActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val fragment = ProfileInfoFragment()
@@ -17,19 +14,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        setWindowTransparent()
         setupSideBar()
         setupRecyclerView()
         setupFragment()
-    }
-
-    private fun setWindowTransparent() {
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
-        window.navigationBarColor =
-            ResourcesCompat.getColor(resources, android.R.color.transparent, theme)
     }
 
     private fun setupSideBar() {
